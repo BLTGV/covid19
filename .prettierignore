@@ -1,0 +1,4 @@
+**/node_modules/**
+public
+src/argon
+yarn.lock
