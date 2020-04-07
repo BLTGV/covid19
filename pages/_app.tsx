@@ -1,31 +1,48 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { AppProps } from "next/app";
 import Head from "next/head";
-import { StoreProvider } from "easy-peasy";
+import { StoreProvider, Store, EasyPeasyConfig } from "easy-peasy";
 import { NextPageContext } from "next";
 
-import "../src/argon/assets/plugins/nucleo/css/nucleo.css";
-import "../src/argon/assets/scss/argon-dashboard-react.scss";
-import "@fortawesome/fontawesome-free/css/all.min.css";
-
-import store from "../src/store";
+import createStore from "../src/store";
+import model, { StoreModel } from "../src/model";
 import { CsseCovid19TimeSeriesRow } from "../src/types/data/source";
 import { generateData } from "../src/data";
 
+import "../styles/index.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import { LocationData, LocationDataMap } from "../src/types/data/series";
+
 interface CustomAppProps extends AppProps {
-  raw: CsseCovid19TimeSeriesRow[];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   debug: any;
+  countries: {
+    countries: LocationDataMap;
+    [summaries: string]: any;
+  };
 }
 
 export default function CustomApp(props: CustomAppProps) {
-  const { Component, pageProps, raw, debug } = props;
-  useEffect(() => {
-    console.log("initial load debug: ", debug);
+  const { Component, pageProps, countries } = props;
 
-    // Can't use hooks because store context is not yet initialized
-    store.getActions().data.loadRaw(raw);
-    store.getActions().data.loadDebug(debug);
+  const store = useMemo(() => {
+    const worst: {
+      country: string;
+      deaths: any;
+    } = countries.byWeeklyDeathsDESC[0];
+    return createStore({
+      ...model,
+      state: { ...model.state, selectedCountryName: worst.country },
+      data: { ...model.data, countries: countries.countries },
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const cs = store.getState().data.countries;
+
+  useEffect(() => {
+    console.log("initial load debug: ", countries);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

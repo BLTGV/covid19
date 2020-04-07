@@ -7,13 +7,13 @@ export interface Summary {
   computedSeries: TimeSeries[];
 }
 
-export interface ProvenceSummary extends Summary {
-  type: "PROVENCE";
+export interface ProvinceSummary extends Summary {
+  type: "PROVINCE";
 }
 
 export interface CountrySummary extends Summary {
   type: "COUNTRY";
-  provences: ProvenceSummary[];
+  provinces: ProvinceSummary[];
 }
 
 export interface WorldSummary extends Summary {

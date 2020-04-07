@@ -1,13 +1,14 @@
-import { retrieveSource } from "./source";
-import { sourceRowToSeries } from "./transforms";
+import { retrieveTimeSeriesJson } from "./source";
+import { groupBy, mapObjIndexed, length } from "ramda";
+import { TimeSeries } from "../types/data/series";
 
 export const generateData = async () => {
-  const raw = await retrieveSource();
-  const debug = raw.map((s) => sourceRowToSeries(s)("CUM_DEATHS"));
-  const countries = [];
+  const timeSeries = await retrieveTimeSeriesJson();
+
+  const debug = null;
+  const countries = timeSeries;
 
   return {
-    raw,
     debug,
     countries,
   };

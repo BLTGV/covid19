@@ -11,6 +11,7 @@
 # next.js
 /.next/
 /out/
+cached_timeseries.json
 
 # production
 /build

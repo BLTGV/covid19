@@ -3,7 +3,7 @@
  * Compatable with ./time_series_covid19_confirmed_global.csv and ./time_series_covid19_deaths_global.csv
  */
 export interface CsseCovid19TimeSeriesRow {
-  "Provence/State": string;
+  "Province/State": string;
   "Country/Region": string;
   Lat: string;
   Long: string;
