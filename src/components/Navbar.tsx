@@ -25,7 +25,7 @@ export default function Navbar() {
             <img
               src={flagPath}
               alt={selectedCountry.country}
-              className="w-20 mr-4"
+              className="w-20 mr-6"
             />
             <CountriesNav />
           </div>
