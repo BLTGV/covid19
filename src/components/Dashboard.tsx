@@ -40,9 +40,6 @@ export default function Dashboard() {
   const weeklyDeathsPM = country.dateSlices.latest[1].weeklyDeathsPM;
   const deathsPM = country.dateSlices.latest[1].deathsPM;
 
-  console.log("country ", country);
-  console.log("date ", latestDate);
-
   return (
     <>
       <Sidebar />
