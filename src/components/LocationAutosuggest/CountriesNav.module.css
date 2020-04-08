@@ -1,0 +1,25 @@
+/* See https://github.com/moroshko/react-autosuggest#theme-prop */
+
+.suggestionsContainerOpen {
+  @apply bg-white;
+  @apply absolute;
+  @apply p-3;
+  @apply text-gray-700;
+  @apply text-sm;
+  @apply rounded;
+  @apply shadow;
+  @apply shadow-outline;
+  @apply w-full;
+  @apply mt-1;
+  @apply w-64;
+  @apply z-10;
+  @apply overflow-scroll;
+  max-height: 60vh;
+}
+
+.suggestionHighlighted {
+  @apply bg-gray-200;
+}
+
+
+

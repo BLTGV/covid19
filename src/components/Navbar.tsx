@@ -1,8 +1,13 @@
 import React from "react";
 
 import UserDropdown from "./UserDropdown.js";
+import CountriesNav from "./LocationAutosuggest/CountriesNav";
+import { countryToFlagPath } from "../data/maps";
+import { useStoreState } from "../store";
 
 export default function Navbar() {
+  const selectedCountry = useStoreState((state) => state.state.selectedCountry);
+  const flagPath = countryToFlagPath(selectedCountry);
   return (
     <>
       {/* Navbar */}
@@ -16,19 +21,14 @@ export default function Navbar() {
           >
             Dashboard
           </a>
-          {/* Form */}
-          {/* <form className="md:flex hidden flex-row flex-wrap items-center lg:ml-auto mr-3">
-            <div className="relative flex w-full flex-wrap items-stretch">
-              <span className="z-10 h-full leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3">
-                <i className="fas fa-search"></i>
-              </span>
-              <input
-                type="text"
-                placeholder="Search here..."
-                className="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10"
-              />
-            </div>
-          </form> */}
+          <div className="md:flex hidden flex-row flex-wrap items-center lg:ml-auto mr-3">
+            <img
+              src={flagPath}
+              alt={selectedCountry.country}
+              className="w-20 mr-4"
+            />
+            <CountriesNav />
+          </div>
           {/* User */}
           <ul className="flex-col md:flex-row list-none items-center hidden md:flex">
             <UserDropdown />

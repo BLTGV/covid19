@@ -3,7 +3,7 @@ import numeral from "numeral";
 import moment from "moment";
 import { useStoreState } from "../store";
 
-import Navbar from "./Navbar.js";
+import Navbar from "./Navbar";
 import Sidebar from "./Sidebar.js";
 import LineChart from "./LineChart.js";
 import BarChart from "./BarChart.js";
