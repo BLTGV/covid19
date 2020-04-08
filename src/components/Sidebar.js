@@ -112,17 +112,17 @@ export default function Sidebar() {
             </h6>
             {/* Navigation */}
             <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
-              {/* <li className="inline-flex">
+              <li className="inline-flex">
                 <a
                   className="text-gray-800 hover:text-gray-600 text-sm block mb-4 no-underline font-semibold"
-                  href="https://bltgv.com"
+                  href="https://github.com/BLTGV/covid19"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i className="fas fa-paint-brush mr-2 text-gray-500 text-base"></i>{" "}
-                  BLT
+                  <i className="fab fa-github mr-2 text-gray-500 text-base"></i>{" "}
+                  Source Code
                 </a>
-              </li> */}
+              </li>
 
               <li className="inline-flex">
                 <a

@@ -153,7 +153,7 @@ export default function TopFiveTable() {
           <div className="relative w-full px-4 max-w-full flex-grow flex-1 text-sm">
             <a
               href="#"
-              className="text-gray-600 hover:text-gray-800 no-underline"
+              className="text-small text-gray-600 hover:text-gray-800 no-underline"
               onClick={(e) => {
                 e.preventDefault();
                 togglePM();
@@ -164,7 +164,7 @@ export default function TopFiveTable() {
               ) : (
                 <i className="far fa-square opacity-75 mr-2" />
               )}
-              # PER MM
+              per million
             </a>
           </div>
           <div className="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
@@ -235,8 +235,8 @@ export default function TopFiveTable() {
                   key={location.country}
                   className={
                     selectedCountryName === location.country
-                      ? "bg-gray-200 hover:bg-gray-100"
-                      : "hover:bg-gray-100"
+                      ? "bg-gray-200 hover:bg-gray-100 cursor-pointer"
+                      : "hover:bg-gray-100 cursor-pointer"
                   }
                   onClick={() => changeSelectedCountry(location.country)}
                 >

@@ -156,7 +156,7 @@ export default function Dashboard() {
                         <div className="flex flex-wrap">
                           <div className="relative w-full pr-4 max-w-full flex-grow flex-1">
                             <h5 className="text-gray-500 uppercase font-bold text-xs">
-                              Deaths Per MM
+                              Deaths Per Million
                             </h5>
                             <span className="font-semibold text-xl text-gray-800">
                               {numeral(weeklyDeathsPM).format("0,0")} weekly
